@@ -20,7 +20,7 @@ fastify.register(indexPagePlugin);
 
 const start = async () => {
   try {
-    await fastify.listen({ port: 8080, host: '0.0.0.0' });
+    await fastify.listen({ port: 8080, host: '127.0.0.1' });
     console.log('Server running on http://localhost:8080');
   } catch (err) {
     fastify.log.error(err);
