@@ -20,7 +20,7 @@ RUN yarn build
 
 # Copy the rest of your application code
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-CMD curl -f http://localhost/health || exit 1
+CMD curl -f http://localhost:8080/health || exit 1
 
 # Expose the port your application listens on (adjust if necessary)
 EXPOSE 8080
