@@ -12,8 +12,8 @@ fastify.register(fastifyStatic, {
     prefix: '/assets/',
 });
 
-fastify.get('/health', async () => {
-  return 'ok';
+fastify.get('/health', async (request, response) => {
+  return response.status(200).send({ "status": "healthy" });
 });
 
 fastify.register(indexPagePlugin);
