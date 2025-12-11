@@ -19,7 +19,8 @@ RUN yarn build
 # Using --frozen-lockfile ensures the exact versions from yarn.lock are installed
 
 # Copy the rest of your application code
-
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+CMD curl -f http://localhost/health || exit 1
 
 # Expose the port your application listens on (adjust if necessary)
 EXPOSE 8080
