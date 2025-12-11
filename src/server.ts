@@ -18,7 +18,6 @@ fastify.get('/health', async () => {
 
 fastify.register(indexPagePlugin);
 
-
 const start = async () => {
   try {
     await fastify.listen({ port: 8080, host: '0.0.0.0' });
