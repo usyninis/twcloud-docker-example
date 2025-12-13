@@ -1,5 +1,5 @@
 {
-    "name": "d-test",
+    "name": "simple-app",
     "version": "0.0.5",
     "scripts": {
         "start": "arui-scripts start",
@@ -11,9 +11,14 @@
         "@fastify/static": "^8.3.0",
         "arui-scripts": "^20.6.2",
         "date-fns": "^4.1.0",
-        "fastify": "^5.6.2"
+        "dotenv": "^17.2.3",
+        "fastify": "^5.6.2",
+        "pg": "^8.16.3",
+        "sequelize": "^6.37.7",
+        "sqlite3": "^5.1.7"
     },
     "devDependencies": {
+        "@types/pg": "^8",
         "typescript": "^5.9.3"
     }
 }

@@ -1,10 +1,16 @@
 import { type FastifyPluginAsync } from 'fastify';
 
 import { readAssetsManifest } from '@alfalab/scripts-server';
+import { BookModel } from './api/book-model';
 
 export const indexPagePlugin: FastifyPluginAsync = async (fastify) => {
     fastify.get('*', async (request, reply) => {
         const assets = await readAssetsManifest(['vendor', 'main']);
+
+        const books = await BookModel.findAll({
+            limit: 10,
+            order: [['createdAt', 'DESC']]
+        });
 
         return reply.type('text/html').send(`<!DOCTYPE html>
                 <html lang="ru">
@@ -16,6 +22,7 @@ export const indexPagePlugin: FastifyPluginAsync = async (fastify) => {
                 </head>
                 <body>
                 <div id="app"></div>
+                <pre>${JSON.stringify(books, null, 4)}</pre>
                 ${assets.js
                     .map((jsFile) => `<script type="text/javascript" src="/${jsFile}" ></script>`)
                     .join('')}
