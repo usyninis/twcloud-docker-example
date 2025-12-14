@@ -7,4 +7,4 @@ _____
 собрать локально:
 docker build --platform=linux/amd64 -t simple-app:0.1.0 .
 
-docker run --env-file ./.env -e DB_HOST=host.docker.internal -p 4001:4000 simple-app:0.1.0
+docker run --env-file ./.env -e DB_HOST=host.docker.internal -p 4001:3000 simple-app:0.1.0
